@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Dice Roller</string>
-
+    <string name="Dice">Dice</string>
+    <string name="Button">Button</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

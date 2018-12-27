@@ -2,11 +2,13 @@ package com.example.saika.a05diceroller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -26,41 +28,38 @@ public class MainActivity extends AppCompatActivity {
         imageView2=findViewById(R.id.iv2);
         imageButton=findViewById(R.id.imageButton2);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rollDice();
-                rollDice2();
-                rotatedice();
-            }
-        });
-
-        imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rollDice();
-                rollDice2();
-                rotatedice();
-            }
-        });
-
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rollDice2();
-                rollDice();
-                rotatedice();
-            }
-        });
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               int a= rollDice();
+//               int b= rollDice2();
+//               String c=String.valueOf(a+b);
+//                rotatedice();
+//                Log.d("hlo",c );
+//                Toast.makeText(getApplicationContext(),c,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
     }
 
+
+    public void btnclick(View view){
+        int a= rollDice();
+        int b= rollDice2();
+        String c=String.valueOf(a+b);
+        rotatedice();
+
+        Toast.makeText(getApplicationContext(),c,Toast.LENGTH_SHORT).show();
+
+}
     private void rotatedice(){
         animation=AnimationUtils.loadAnimation(this,R.anim.animation);
         imageview.startAnimation(animation);
         imageView2.startAnimation(animation);
     }
 
-    private void rollDice(){
+    private int rollDice(){
         int randomNumber=random.nextInt(6)+1;
 
         switch (randomNumber){
@@ -83,9 +82,10 @@ public class MainActivity extends AppCompatActivity {
                 imageView2.setImageResource(R.drawable.six);
                 break;
         }
+        return randomNumber;
     }
 
-    private void  rollDice2(){
+    private int  rollDice2(){
         int randomNumber2=random.nextInt(6)+1;
 
         switch (randomNumber2){
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 imageview.setImageResource(R.drawable.six);
                 break;
         }
+        return randomNumber2;
     }
 }
 
