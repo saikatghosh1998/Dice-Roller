@@ -1,4 +1,5 @@
-#Dice Roller App
+# Dice Roller App
 
-##screen shots
+## screen shots
+
 ![](diceroller.gif)
